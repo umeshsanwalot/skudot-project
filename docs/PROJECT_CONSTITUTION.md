@@ -1,0 +1,17 @@
+- Cloud platform: Microsoft Azure only.
+- Compute: a single Azure VM running Docker Compose. Do NOT introduce Kubernetes, Helm, or AKS at any point.
+- Database: Azure Database for PostgreSQL Flexible Server (managed). Never self-host Postgres on the VM.
+- Event/queue layer: Redis Streams. Never introduce Kafka.
+- Vector database: Qdrant, self-hosted on the VM.
+- AI provider: OpenAI GPT API only. Do not use a self-hosted LLM.
+- Messaging: Meta WhatsApp Cloud API only.
+- File storage: Azure Blob Storage.
+- Secrets: Azure Key Vault only. Never commit secrets, API keys, or connection strings to the repository in any file, including .env files.
+- Multi-tenancy: single shared database, shared schema, row-level isolation via an organization_id column on every tenant-scoped table, enforced by Postgres Row-Level Security. Never implement database-per-tenant or schema-per-tenant.
+- No payment gateway integration of any kind, ever. The system only records how a customer paid (a label: cash, upi, bank_transfer, cheque, credit) and tracks invoice status (paid, unpaid, partial). It never processes, holds, or settles money.
+- No GST billing, no tax computation, no HSN codes anywhere in the system.
+- No running credit ledger / udhar book / customer balance accounting. Customer trust is a simple manual flag only: trusted, neutral, or risky.
+- No third-party workflow tools (n8n) and no MCP (Model Context Protocol) servers. AI agents call internal application functions directly.
+- Every table representing a real business record must support soft delete (a deleted_at timestamp column) and must never be hard-deleted.
+- Every table must include created_at, updated_at, deleted_at, created_by, updated_by columns, except global system-reference tables explicitly marked otherwise.
+
