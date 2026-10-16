@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Skudot AgentX",
+    "slug": "skudot-agentx-mobile",
+    "scheme": "skudot-agentx",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "android": {
+      "package": "in.skudot.agentx"
+    },
+    "ios": {
+      "bundleIdentifier": "in.skudot.agentx"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+import { StyleSheet, Text, View } from "react-native";
+export default function AccountScreen() {
+  return <View style={s.page}><Text style={s.heading}>Account</Text><Text style={s.sub}>Your profile and secure session.</Text><View style={s.card}><Text style={s.title}>Sign-in is not connected yet</Text><Text style={s.copy}>The existing OTP endpoints and session format must be confirmed from FastAPI before implementing authentication. Credentials will use platform secure storage once integrated.</Text></View><Text style={s.caption}>Skudot AgentX · Mobile preview</Text></View>;
+}
+const s = StyleSheet.create({ page: { flex: 1, padding: 22, paddingTop: 30, gap: 12 }, heading: { color: "#17213A", fontSize: 30, fontWeight: "800" }, sub: { color: "#6D778D", fontSize: 14 }, card: { marginTop: 12, padding: 18, backgroundColor: "#FFFFFF", borderRadius: 16, borderWidth: 1, borderColor: "#E8EAF1", gap: 8 }, title: { color: "#17213A", fontSize: 16, fontWeight: "700" }, copy: { color: "#6D778D", fontSize: 13, lineHeight: 20 }, caption: { color: "#8790A2", fontSize: 12, marginTop: 10 } });
